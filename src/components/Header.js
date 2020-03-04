@@ -4,17 +4,14 @@ import React from 'react'
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
     <div className="logo">
-      <span className="icon fa-diamond"></span>
+      <span className="icon fa-line-chart"></span>
     </div>
     <div className="content">
       <div className="inner">
         <h1>Data Analytics</h1>
         <p>
-          A fully responsive site template designed by{' '}
-          <a href="https://html5up.net">HTML5 UP</a> and released
-          <br />
-          for free under the{' '}
-          <a href="https://html5up.net/license">Creative Commons</a> license.
+          A platform to help users make data-driven decisions for product
+          development, testing and management ​
         </p>
       </div>
     </div>
@@ -41,19 +38,19 @@ const Header = props => (
         <li>
           <button
             onClick={() => {
-              props.onOpenArticle('about')
+              props.onOpenArticle('contact')
             }}
           >
-            About
+            Contact
           </button>
         </li>
         <li>
           <button
             onClick={() => {
-              props.onOpenArticle('contact')
+              props.onOpenArticle('about')
             }}
           >
-            Contact
+            Our Team
           </button>
         </li>
       </ul>
