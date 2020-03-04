@@ -28,7 +28,7 @@ const Header = props => (
           </button>
         </li>
         <li>
-          <Link to="/page-2">
+          <Link to="/avs">
             <button>AVS</button>
           </Link>
         </li>
