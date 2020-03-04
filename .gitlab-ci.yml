@@ -1,0 +1,57 @@
+image: node:latest
+
+stages:
+  - install
+  - test
+  - deploy
+
+prodInstall:
+  stage: install
+  script:
+    - npm install --production
+  artifacts:
+    untracked: true
+
+unitTesting:
+  stage: test
+  dependencies:
+    - prodInstall
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    untracked: true
+
+# deployingDev:
+#   stage: deploy
+#   only:
+#     - dev
+#   dependencies:
+#     - prodInstall
+#     - unitTesting
+#   script:
+#     - pip3 install awscli
+#     - aws configure set profile bucket-dev
+#     - aws configure set aws_access_key_id "$DEV_AWS_KEY"
+#     - aws configure set aws_secret_access_key "$DEV_AWS_SECRET"
+#     - ((aws s3api create-bucket --acl public-read  --bucket my-app-dev && echo 'Created bucket.') || echo 'Already existing bucket.')
+#     - aws s3api put-bucket-website --bucket my-app-dev --website-configuration file://website.json
+#     - aws s3api put-bucket-policy --bucket my-app-dev --policy file://policy-dev.json
+#     - aws s3 sync ./build/ s3://my-app-dev
+
+# deployingProd:
+#   stage: deploy
+#   only:
+#     - master
+#   dependencies:
+#     - prodInstall
+#     - unitTesting
+#   script:
+#     - pip3 install awscli
+#     - aws configure set profile bucket-prod
+#     - aws configure set aws_access_key_id "$PROD_AWS_KEY"
+#     - aws configure set aws_secret_access_key "$PROD_AWS_SECRET"
+#     - ((aws s3api create-bucket --acl public-read  --bucket my-app-prod && echo 'Created bucket.') || echo 'Already existing bucket.')
+#     - aws s3api put-bucket-website --bucket my-app-prod --website-configuration file://website.json
+#     - aws s3api put-bucket-policy --bucket my-app-prod --policy file://policy-prod.json
+#     - aws s3 sync ./build/ s3://my-app-prod
