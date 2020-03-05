@@ -1,16 +1,14 @@
-import React from 'react'
 import { Link } from 'gatsby'
+import React from 'react'
 
-import Layout from '../components/layout'
 import Maps from '../components/avs/Maps'
+import Layout from '../components/layout'
 
-const SecondPage = () => (
+export default () => (
   <Layout>
-    <Link to="/">Go back to the homepage</Link>
+    <Link to="/">Home</Link>
     <div style={{ width: '85vw', height: '80vh' }}>
       <Maps />
     </div>
   </Layout>
 )
-
-export default SecondPage

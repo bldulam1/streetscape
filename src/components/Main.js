@@ -1,8 +1,17 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import pic01 from '../images/pic01.jpg'
+
+// import pic01 from '../images/pic01.jpg'
+// import pic03 from '../images/pic03.jpg'
 import pic02 from '../images/pic02.jpg'
-import pic03 from '../images/pic03.jpg'
+
+function Contact(info) {
+  const ind = info.indexOf('<')
+  return {
+    email: info.slice(ind + 1, info.length - 1),
+    name: info.slice(0, ind),
+  }
+}
 
 class Main extends React.Component {
   render() {
@@ -14,6 +23,9 @@ class Main extends React.Component {
         }}
       ></div>
     )
+    let contacts = 'Daniel Danch <daniel.danch@veoneer.com>; Sebastian Franz <sebastian.franz@veoneer.com>; Isaac Alonso-Fernandez <isaac.alonso-fernandez@veoneer.com>; Sandeep Pandey <sandeep.pandey@veoneer.com>; Maruthi Nanjegowda <maruthi.nanjegowda@veoneer.com>; Siddaramu Shankar <siddaramu.shankar@veoneer.com>; Anupama Marigowda <anupama.marigowda@veoneer.com>; Ravi Soni <ravi.soni@veoneer.com>; Bhanu Prasad <bhanu.prasad.external@veoneer.com>; Aniket Kumar <aniket.kumar.external@veoneer.com>; Praveena Balakrishna <praveena.balakrishna@veoneer.com>; Martin Dahl <martin.dahl@veoneer.com>; Ludwig Ring <ludwig.ring@veoneer.com>; Dimitrios Felekidis <dimitrios.felekidis@veoneer.com>; Linus Blomquist <linus.blomquist.external@veoneer.com>; Robert Wingren <robert.wingren@veoneer.com>; Christopher Burdett <christopher.burdett@veoneer.com>; Brendon Dulam <brendon.dulam@veoneer.com>; Rafael Trailescu <rafael.trailescu@veoneer.com>'
+      .split(';')
+      .map(Contact)
 
     return (
       <div
@@ -28,29 +40,19 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">Intro</h2>
-          <span className="image main">
-            <img src={pic01} alt="" />
-          </span>
+          <h2 className="major">Mission Statement</h2>
           <p>
-            Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
-            aliquam facilisis ante interdum congue. Integer mollis, nisl amet
-            convallis, porttitor magna ullamcorper, amet egestas mauris. Ut
-            magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas.
-            By the way, check out my <a href="#work">awesome work</a>.
+            Data Analytics will develop a platform to provide a wide variety of
+            information with low-latency allowing users to make data-driven
+            decisions for product development, testing and management
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora
-            torquent per conubia nostra, per inceptos himenaeos. Etiam tristique
-            libero eu nibh porttitor fermentum. Nullam venenatis erat id
-            vehicula viverra. Nunc ultrices eros ut ultricies condimentum.
-            Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae
-            dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in
-            lectus. Pellentesque habitant morbi tristique senectus et netus et
-            malesuada fames ac turpis egestas. In non lorem sit amet elit
-            placerat maximus. Pellentesque aliquam maximus risus, vel sed
-            vehicula.
+            Data Analytics will create and maintain a qualified analysis toolkit
+            for product verification and validation​
+          </p>
+          <p>
+            Data Analytics will provide product performance metrics based on
+            standardized and qualified solutions​ ​ ​
           </p>
           {close}
         </article>
@@ -92,18 +94,18 @@ class Main extends React.Component {
           style={{ display: 'none' }}
         >
           <h2 className="major">Our Team</h2>
-          <span className="image main">
+          {/* <span className="image main">
             <img src={pic03} alt="" />
-          </span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent
-            eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam
-            erat volutpat. Praesent urna nisi, fringila lorem et vehicula
-            lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.
-            Aliquam libero et malesuada fames ac ante ipsum primis in faucibus.
-            Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit
-            amet.
-          </p>
+          </span> */}
+          <ul>
+            {contacts.map(({ name, email }, index) => (
+              <div>
+                <a key={`${email}`} href={`mailto: ${email}`}>
+                  {name}
+                </a>
+              </div>
+            ))}
+          </ul>
           {close}
         </article>
 
