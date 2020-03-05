@@ -33,13 +33,9 @@ const Header = props => (
           </Link>
         </li>
         <li>
-          <button
-            onClick={() => {
-              props.onOpenArticle('contact')
-            }}
-          >
-            Contact
-          </button>
+          <Link to="/stats">
+            <button>Power BI</button>
+          </Link>
         </li>
         <li>
           <button
