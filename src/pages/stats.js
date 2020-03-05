@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 
-export default params => {
+export default () => {
   return (
     <div
       style={{

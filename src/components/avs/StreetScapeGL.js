@@ -61,8 +61,7 @@ class StreetScapeGL extends PureComponent {
 const ControlPanel = ({ log }) => {
   return (
     <div id="control-panel">
-      <div className="close"></div>
-      <XVIZPanel log={log} name="Metrics" />
+      {/* <XVIZPanel log={log} name="Metrics" /> */}
       {/*<hr/>*/}
       {/* <Form
       data={APP_SETTINGS}
