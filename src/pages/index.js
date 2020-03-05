@@ -1,11 +1,12 @@
 import React from 'react'
-import Layout from '../components/layout'
 
-import Header from '../components/Header'
-import Main from '../components/Main'
 import Footer from '../components/Footer'
-import Particles from 'react-particles-js'
-import { config } from '../assets/particles'
+import Header from '../components/Header'
+import Layout from '../components/layout'
+import Main from '../components/Main'
+
+// import Particles from 'react-particles-js'
+// import { config } from '../assets/particles'
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -111,7 +112,7 @@ class IndexPage extends React.Component {
             <Footer timeout={this.state.timeout} />
           </div>
           <div id="bg">
-            <Particles style={{height:"100%", width:"100%"}} params={config} />
+            {/* <Particles style={{height:"100%", width:"100%"}} params={config} /> */}
           </div>
         </div>
       </Layout>
