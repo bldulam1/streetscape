@@ -5,10 +5,11 @@ import Maps from '../components/avs/Maps'
 import Layout from '../components/layout'
 
 export default () => (
-  <Layout>
-    <Link to="/">Home</Link>
-    <div style={{ width: '85vw', height: '80vh' }}>
+
+  // <Layout>
+    // <Link to="/">Home</Link>
+    <div style={{ width: '100vw', height: '100vh' }}>
       <Maps />
     </div>
-  </Layout>
+  // </Layout>
 )

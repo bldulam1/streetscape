@@ -1,37 +1,27 @@
-import "./maps.css"
+import { setXVIZConfig } from '@xviz/parser'
+import React, { PureComponent } from 'react'
+import { LogViewer, StreamSettingsPanel, VIEW_MODE, XVIZPanel } from 'streetscape.gl'
 
-import {
-  CAR,
-  MAPBOX_TOKEN,
-  MAP_STYLE,
-  XVIZ_CONFIG,
-  XVIZ_STYLE,
-} from "./constants"
-import {
-  LogViewer,
-  VIEW_MODE,
-  XVIZPanel,
-} from "streetscape.gl"
-import React, { PureComponent } from "react"
+import { CAR, MAP_STYLE, MAPBOX_TOKEN, XVIZ_CONFIG, XVIZ_STYLE } from './constants'
+import TimeLineView from './TimeLineView'
 
-import TimeLineView from "./TimeLineView"
-import { setXVIZConfig } from "@xviz/parser"
+import './maps.css'
 
 setXVIZConfig(XVIZ_CONFIG)
 
-const exampleLog = require("./log-from-file").default
+const exampleLog = require('./log-from-file').default
 
 class StreetScapeGL extends PureComponent {
   state = {
     log: exampleLog,
     settings: {
-      viewMode: "PERSPECTIVE",
+      viewMode: 'PERSPECTIVE',
       showTooltip: false,
     },
   }
 
   componentDidMount() {
-    this.state.log.on("error", console.error).connect()
+    this.state.log.on('error', console.error).connect()
   }
 
   _onSettingsChange = changedSettings => {
@@ -45,7 +35,7 @@ class StreetScapeGL extends PureComponent {
 
     return (
       <div id="container">
-        {/* <ControlPanel log={log}/> */}
+        <ControlPanel log={log} />
         <div id="log-panel">
           <div id="map-view">
             <LogViewer
@@ -68,19 +58,20 @@ class StreetScapeGL extends PureComponent {
   }
 }
 
-// const ControlPanel = ({ log }) => {
-//   return (
-//     <div id="control-panel">
-//       {/*<XVIZPanel log={log} name="Metrics"/>*/}
-//       {/*<hr/>*/}
-//       {/* <Form
-//       data={APP_SETTINGS}
-//       values={settings}
-//       onChange={_onSettingsChange}
-//     /> */}
-//       <StreamSettingsPanel log={log} />
-//     </div>
-//   )
-// }
+const ControlPanel = ({ log }) => {
+  return (
+    <div id="control-panel">
+      <div className="close"></div>
+      <XVIZPanel log={log} name="Metrics" />
+      {/*<hr/>*/}
+      {/* <Form
+      data={APP_SETTINGS}
+      values={settings}
+      onChange={_onSettingsChange}
+    /> */}
+      <StreamSettingsPanel log={log} />
+    </div>
+  )
+}
 
 export default StreetScapeGL

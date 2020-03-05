@@ -1,17 +1,10 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-// import pic01 from '../images/pic01.jpg'
-// import pic03 from '../images/pic03.jpg'
 import pic02 from '../images/pic02.jpg'
-
-function Contact(info) {
-  const ind = info.indexOf('<')
-  return {
-    email: info.slice(ind + 1, info.length - 1),
-    name: info.slice(0, ind),
-  }
-}
+// import pic01 from '../images/pic01.jpg'
+import pic03 from '../images/pic03.jpg'
+import { contacts } from './contacts'
 
 class Main extends React.Component {
   render() {
@@ -23,9 +16,6 @@ class Main extends React.Component {
         }}
       ></div>
     )
-    let contacts = 'Daniel Danch <daniel.danch@veoneer.com>; Sebastian Franz <sebastian.franz@veoneer.com>; Isaac Alonso-Fernandez <isaac.alonso-fernandez@veoneer.com>; Sandeep Pandey <sandeep.pandey@veoneer.com>; Maruthi Nanjegowda <maruthi.nanjegowda@veoneer.com>; Siddaramu Shankar <siddaramu.shankar@veoneer.com>; Anupama Marigowda <anupama.marigowda@veoneer.com>; Ravi Soni <ravi.soni@veoneer.com>; Bhanu Prasad <bhanu.prasad.external@veoneer.com>; Aniket Kumar <aniket.kumar.external@veoneer.com>; Praveena Balakrishna <praveena.balakrishna@veoneer.com>; Martin Dahl <martin.dahl@veoneer.com>; Ludwig Ring <ludwig.ring@veoneer.com>; Dimitrios Felekidis <dimitrios.felekidis@veoneer.com>; Linus Blomquist <linus.blomquist.external@veoneer.com>; Robert Wingren <robert.wingren@veoneer.com>; Christopher Burdett <christopher.burdett@veoneer.com>; Brendon Dulam <brendon.dulam@veoneer.com>; Rafael Trailescu <rafael.trailescu@veoneer.com>'
-      .split(';')
-      .map(Contact)
 
     return (
       <div
@@ -53,35 +43,6 @@ class Main extends React.Component {
           <p>
             Data Analytics will provide product performance metrics based on
             standardized and qualified solutions​ ​ ​
-          </p>
-          {close}
-        </article>
-
-        <article
-          id="work"
-          className={`${this.props.article === 'work' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
-          }`}
-          style={{ display: 'none' }}
-        >
-          <h2 className="major">Work</h2>
-          <span className="image main">
-            <img src={pic02} alt="" />
-          </span>
-          <p>
-            Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu,
-            at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent
-            urna nisi, fringila lorem et vehicula lacinia quam. Integer
-            sollicitudin mauris nec lorem luctus ultrices.
-          </p>
-          <p>
-            Nullam et orci eu lorem consequat tincidunt vivamus et sagittis
-            libero. Mauris aliquet magna magna sed nunc rhoncus pharetra.
-            Pellentesque condimentum sem. In efficitur ligula tate urna.
-            Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor.
-            Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis
-            libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat
-            tempus.
           </p>
           {close}
         </article>
