@@ -30,7 +30,6 @@ import { LOGS, MOBILE_NOTIFICATION } from './constants'
 import ControlPanel from './control-panel'
 import { UI_THEME } from './custom-styles'
 import HUD from './hud'
-import isMobile from './is-mobile'
 import MapView from './map-view'
 import NotificationPanel from './notification-panel'
 import Timeline from './timeline'
@@ -40,7 +39,7 @@ import './stylesheets/main.scss'
 
 export default class AVSAutoWS extends PureComponent {
   state = {
-    ...(!isMobile && this._loadLog(LOGS[0])),
+    ...this._loadLog(LOGS[0]),
     settings: {
       viewMode: 'PERSPECTIVE',
       showTooltip: false,
