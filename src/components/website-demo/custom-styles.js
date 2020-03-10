@@ -43,7 +43,8 @@ export const UI_THEME = {
 
 export const PLAYBACK_CONTROL_STYLE = {
   wrapper: {
-    paddingTop: 44
+    paddingTop: 44,
+    background: 'none'
   },
   slider: {
     wrapper: {

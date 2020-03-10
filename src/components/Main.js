@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import uuid from 'uuid'
 
 import { contacts } from './contacts'
 
@@ -59,7 +58,7 @@ class Main extends React.Component {
           <ul>
             {contacts.map(({ name, email }, index) => (
               <div>
-                <a key={uuid()} href={`mailto: ${email}`}>
+                <a key={email+'_key'} href={`mailto: ${email}`}>
                   {name}
                 </a>
               </div>

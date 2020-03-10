@@ -26,6 +26,8 @@ import { STREAM_SETTINGS_STYLE, XVIZ_PANEL_STYLE } from './custom-styles';
 import HelpPanel from './help-panel';
 import MetadataPanel from './metadata-panel';
 
+import "./stylesheets/main.scss"
+
 export default class ControlPanel extends PureComponent {
   state = {
     tab: 'streams'
