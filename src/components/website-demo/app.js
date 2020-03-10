@@ -84,10 +84,6 @@ export default class AVSAutoWS extends PureComponent {
   }
 
   render() {
-    if (isMobile) {
-      return <NotificationPanel notification={MOBILE_NOTIFICATION} />
-    }
-
     const { log, selectedLog, settings } = this.state
 
     return (
