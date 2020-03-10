@@ -49,6 +49,7 @@ class StreetScapeGL extends PureComponent {
             />
             <div id="camera-view">
               <XVIZPanel log={log} name="Camera" />
+              <XVIZPanel log={log} name="Camera" />
             </div>
           </div>
           <TimeLineView log={log} />
@@ -64,10 +65,10 @@ const ControlPanel = ({ log }) => {
       {/* <XVIZPanel log={log} name="Metrics" /> */}
       {/*<hr/>*/}
       {/* <Form
-      data={APP_SETTINGS}
-      values={settings}
-      onChange={_onSettingsChange}
-    /> */}
+        data={APP_SETTINGS}
+        values={settings}
+        onChange={_onSettingsChange}
+      /> */}
       <StreamSettingsPanel log={log} />
     </div>
   )

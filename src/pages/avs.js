@@ -1,20 +1,32 @@
 import { Link } from 'gatsby'
 import React from 'react'
 
-import Maps from '../components/avs/Maps'
+import StreetScapeGL from '../components/avs/StreetScapeGL'
+import AVSAutoWS from '../components/website-demo/app'
 
-export default () => (
-  <div
-    style={{
+const createStyles = () => {
+  return {
+    main: {
       height: '100vh',
       width: '100vw',
       display: 'flex',
       flexDirection: 'column',
-    }}
-  >
-    <Link to="/">Home</Link>
-    <div style={{ flexGrow: 1 }}>
-      <Maps />
+    },
+    streetscape: {
+      flexBox: 1,
+    },
+  }
+}
+
+export default () => {
+  const styles = createStyles()
+  return (
+    <div style={styles.main}>
+      <Link to="/">Home</Link>
+      <div style={styles.streetscape}>
+        {/* <StreetScapeGL /> */}
+        <AVSAutoWS />
+      </div>
     </div>
-  </div>
-)
+  )
+}
