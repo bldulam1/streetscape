@@ -35,43 +35,24 @@ class StreetScapeGL extends PureComponent {
 
     return (
       <div id="container">
-        <ControlPanel log={log} />
-        <div id="log-panel">
-          <div id="map-view">
-            <LogViewer
-              log={log}
-              mapboxApiAccessToken={MAPBOX_TOKEN}
-              mapStyle={MAP_STYLE}
-              car={CAR}
-              xvizStyles={XVIZ_STYLE}
-              showTooltip={settings.showTooltip}
-              viewMode={VIEW_MODE[settings.viewMode]}
-            />
-            <div id="camera-view">
-              <XVIZPanel log={log} name="Camera" />
-              <XVIZPanel log={log} name="Camera" />
-            </div>
-          </div>
-          <TimeLineView log={log} />
+        <div id="control-panel">
+          <XVIZPanel log={log} name="Metrics" />
+          <StreamSettingsPanel log={log} />
         </div>
+        <LogViewer
+          log={log}
+          mapboxApiAccessToken={MAPBOX_TOKEN}
+          mapStyle={MAP_STYLE}
+          car={CAR}
+          xvizStyles={XVIZ_STYLE}
+          showTooltip={settings.showTooltip}
+          viewMode={VIEW_MODE[settings.viewMode]}
+        />
+        <XVIZPanel log={log} name="Camera" />
+        <TimeLineView log={log} />
       </div>
     )
   }
-}
-
-const ControlPanel = ({ log }) => {
-  return (
-    <div id="control-panel">
-      {/* <XVIZPanel log={log} name="Metrics" /> */}
-      {/*<hr/>*/}
-      {/* <Form
-        data={APP_SETTINGS}
-        values={settings}
-        onChange={_onSettingsChange}
-      /> */}
-      <StreamSettingsPanel log={log} />
-    </div>
-  )
 }
 
 export default StreetScapeGL

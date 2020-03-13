@@ -22,20 +22,20 @@ import { setXVIZConfig } from '@xviz/parser'
 
 /* global document */
 import React, { PureComponent } from 'react'
-import { render } from 'react-dom'
 import { XVIZFileLoader } from 'streetscape.gl'
 
-import CameraPanel from './camera-panel'
-import { LOGS, MOBILE_NOTIFICATION } from './constants'
-import ControlPanel from './control-panel'
-import { UI_THEME } from './custom-styles'
-import HUD from './hud'
+import { LOGS } from './constants'
+// import CameraPanel from './camera-panel'
+// import ControlPanel from './control-panel'
+// import { UI_THEME } from './custom-styles'
+// import HUD from './hud'
 import MapView from './map-view'
-import NotificationPanel from './notification-panel'
+// import NotificationPanel from './notification-panel'
 import Timeline from './timeline'
-import Toolbar from './toolbar'
+// import Toolbar from './toolbar'
 
 import './stylesheets/main.scss'
+
 
 export default class AVSAutoWS extends PureComponent {
   state = {
@@ -50,13 +50,12 @@ export default class AVSAutoWS extends PureComponent {
     if (logSettings.xvizConfig) {
       setXVIZConfig(logSettings.xvizConfig)
     }
+    const url =
+      'https://raw.githubusercontent.com/uber/xviz-data/master/kitti/2011_09_26_drive_0005_sync'
 
     const loader = new XVIZFileLoader({
-      timingsFilePath:
-        'https://raw.githubusercontent.com/uber/xviz-data/master/kitti/2011_09_26_drive_0005_sync/0-frame.json',
-      getFilePath: index =>
-        `https://raw.githubusercontent.com/uber/xviz-data/master/kitti/2011_09_26_drive_0005_sync/${index +
-          1}-frame.glb`,
+      timingsFilePath: `${url}/0-frame.json`,
+      getFilePath: index => `${url}/${index + 1}-frame.glb`,
       worker: true,
       maxConcurrency: 4,
     })
@@ -93,8 +92,9 @@ export default class AVSAutoWS extends PureComponent {
           settings={settings}
           onSettingsChange={this._onSettingsChange}
         />
+        <Timeline log={log} />
 
-        <ControlPanel
+        {/* <ControlPanel
           selectedLog={selectedLog}
           onLogChange={this._onLogChange}
           log={log}
@@ -102,7 +102,6 @@ export default class AVSAutoWS extends PureComponent {
 
         <HUD log={log} />
 
-        <Timeline log={log} />
 
         <Toolbar
           settings={settings}
@@ -112,7 +111,7 @@ export default class AVSAutoWS extends PureComponent {
         <CameraPanel
           log={log}
           videoAspectRatio={selectedLog.videoAspectRatio}
-        />
+        /> */}
       </div>
     )
   }
