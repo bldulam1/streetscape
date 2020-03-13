@@ -22,7 +22,6 @@ import { setXVIZConfig } from '@xviz/parser'
 
 /* global document */
 import React, { PureComponent } from 'react'
-import { XVIZFileLoader } from 'streetscape.gl'
 
 import { LOGS } from './constants'
 // import CameraPanel from './camera-panel'
@@ -36,39 +35,19 @@ import Timeline from './timeline'
 
 import './stylesheets/main.scss'
 
+const exampleLog = require('./log-from-file').default
 
 export default class AVSAutoWS extends PureComponent {
   state = {
-    ...this._loadLog(LOGS[0]),
+    log: exampleLog,
     settings: {
       viewMode: 'PERSPECTIVE',
       showTooltip: false,
     },
   }
 
-  _loadLog(logSettings) {
-    if (logSettings.xvizConfig) {
-      setXVIZConfig(logSettings.xvizConfig)
-    }
-    const url =
-      'https://raw.githubusercontent.com/uber/xviz-data/master/kitti/2011_09_26_drive_0005_sync'
-
-    const loader = new XVIZFileLoader({
-      timingsFilePath: `${url}/0-frame.json`,
-      getFilePath: index => `${url}/${index + 1}-frame.glb`,
-      worker: true,
-      maxConcurrency: 4,
-    })
-      .on('ready', () =>
-        loader.updateStreamSettings({
-          '/tracklets/label': false,
-        })
-      )
-      .on('error', console.error) // eslint-disable-line
-
-    loader.connect()
-
-    return { selectedLog: logSettings, log: loader }
+  componentDidMount() {
+    this.state.log.on('error', console.error).connect()
   }
 
   _onLogChange = selectedLog => {
