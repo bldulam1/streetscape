@@ -24,14 +24,14 @@ import { setXVIZConfig } from '@xviz/parser'
 import React, { PureComponent } from 'react'
 
 import { LOGS } from './constants'
-// import CameraPanel from './camera-panel'
-// import ControlPanel from './control-panel'
-// import { UI_THEME } from './custom-styles'
-// import HUD from './hud'
+import CameraPanel from './camera-panel'
+import ControlPanel from './control-panel'
+import { UI_THEME } from './custom-styles'
+import HUD from './hud'
 import MapView from './map-view'
-// import NotificationPanel from './notification-panel'
+import NotificationPanel from './notification-panel'
 import Timeline from './timeline'
-// import Toolbar from './toolbar'
+import Toolbar from './toolbar'
 
 import './stylesheets/main.scss'
 
@@ -65,33 +65,33 @@ export default class AVSAutoWS extends PureComponent {
     const { log, selectedLog, settings } = this.state
 
     return (
-      <div id="container">
-        <MapView
-          log={log}
-          settings={settings}
-          onSettingsChange={this._onSettingsChange}
-        />
-        <Timeline log={log} />
+      <ThemeProvider theme={UI_THEME}>
+        <div id="container">
+          <MapView
+            log={log}
+            settings={settings}
+            onSettingsChange={this._onSettingsChange}
+          />
+          <Timeline log={log} />
+          <ControlPanel
+            selectedLog={selectedLog}
+            onLogChange={this._onLogChange}
+            log={log}
+          />
 
-        {/* <ControlPanel
-          selectedLog={selectedLog}
-          onLogChange={this._onLogChange}
-          log={log}
-        />
+          <HUD log={log} />
 
-        <HUD log={log} />
+          <Toolbar
+            settings={settings}
+            onSettingsChange={this._onSettingsChange}
+          />
 
-
-        <Toolbar
-          settings={settings}
-          onSettingsChange={this._onSettingsChange}
-        />
-
-        <CameraPanel
-          log={log}
-          videoAspectRatio={selectedLog.videoAspectRatio}
-        /> */}
-      </div>
+          {/* <CameraPanel
+            log={log}
+            videoAspectRatio={selectedLog.videoAspectRatio}
+          /> */}
+        </div>
+      </ThemeProvider>
     )
   }
 }
