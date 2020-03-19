@@ -18,19 +18,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import React, { PureComponent } from 'react'
-import { StreamSettingsPanel, XVIZPanel } from 'streetscape.gl'
+import React, { PureComponent } from "react"
+import { Link } from "gatsby"
+import { StreamSettingsPanel, XVIZPanel } from "streetscape.gl"
 
-import { STREAM_SETTINGS_STYLE, XVIZ_PANEL_STYLE } from './custom-styles'
-import HelpPanel from './help-panel'
-import MetadataPanel from './metadata-panel'
-import { Link } from 'gatsby'
-
-import './stylesheets/main.scss'
+import { STREAM_SETTINGS_STYLE, XVIZ_PANEL_STYLE } from "./custom-styles"
+import MetadataPanel from "./metadata-panel"
+import HelpPanel from "./help-panel"
 
 export default class ControlPanel extends PureComponent {
   state = {
-    tab: 'streams',
+    tab: "streams",
   }
 
   _gotoTab(tab) {
@@ -41,32 +39,26 @@ export default class ControlPanel extends PureComponent {
     const { log, selectedLog, onLogChange } = this.props
 
     switch (this.state.tab) {
-      case 'streams':
-        return <StreamSettingsPanel log={log} style={STREAM_SETTINGS_STYLE} />
+      case "streams":
+        return <StreamSettingsPanel log={log} style={STREAM_SETTINGS_STYLE}/>
 
-      case 'charts':
+      case "charts":
         return (
           <XVIZPanel
             log={log}
             name="Metrics"
             style={XVIZ_PANEL_STYLE}
             componentProps={{
-              metric: { getColor: '#ccc' },
+              metric: { getColor: "#ccc" },
             }}
           />
         )
 
-      case 'input':
-        return (
-          <MetadataPanel
-            log={log}
-            selectedLog={selectedLog}
-            onLogChange={onLogChange}
-          />
-        )
+      case "input":
+        return <MetadataPanel log={log} selectedLog={selectedLog} onLogChange={onLogChange}/>
 
-      case 'help':
-        return <HelpPanel />
+      case "help":
+        return <HelpPanel/>
 
       default:
         return null
@@ -77,10 +69,7 @@ export default class ControlPanel extends PureComponent {
     const { tab } = this.state
 
     return (
-      <div
-        className={`tab ${id === tab ? 'active' : ''}`}
-        onClick={() => this._gotoTab(id)}
-      >
+      <div className={`tab ${id === tab ? "active" : ""}`} onClick={() => this._gotoTab(id)}>
         {id}
       </div>
     )
@@ -89,29 +78,27 @@ export default class ControlPanel extends PureComponent {
   render() {
     const { tab } = this.state
 
-    const isHelpOpen = tab === 'help'
+    const isHelpOpen = tab === "help"
 
     return (
       <div id="control-panel">
         <header>
           <div id="logo">
-            <Link to="/">Home</Link>
+            <Link to="/">
+              Home
+            </Link>
           </div>
           <div id="help-btn">
             {HelpPanel.renderButton({
               isOpen: isHelpOpen,
-              onClick: () =>
-                this._gotoTab(isHelpOpen ? this.state.lastTab : 'help'),
+              onClick: () => this._gotoTab(isHelpOpen ? this.state.lastTab : "help"),
             })}
           </div>
           {!isHelpOpen && (
             <div id="tabs">
-              {this._renderTab({ id: 'input', description: 'File Input' })}
-              {this._renderTab({
-                id: 'streams',
-                description: 'Stream Settings',
-              })}
-              {this._renderTab({ id: 'charts', description: 'Charts' })}
+              {this._renderTab({ id: "input", description: "File Input" })}
+              {this._renderTab({ id: "streams", description: "Stream Settings" })}
+              {this._renderTab({ id: "charts", description: "Charts" })}
             </div>
           )}
         </header>

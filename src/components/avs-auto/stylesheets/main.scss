@@ -15,38 +15,44 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow:hidden;
+  overflow: hidden;
 }
+
 #control-panel {
   position: fixed;
+  right: 250px;
+  margin-right: -250px;
   width: 348px;
   height: calc(100vh - 150px);
   border-bottom: solid 1px #000;
 }
+
 #timeline {
   position: fixed;
-  left: 348px;
-  right: 0;
+  right: 348px;
+  left: 0;
   bottom: 0;
-  border-left: solid 1px #000;
+  border-right: solid 1px #000;
 }
+
 #hud {
   position: fixed;
   width: 348px;
   height: 149px;
-  left: 0;
+  right: 0;
   bottom: 0;
 }
+
 #toolbar {
   position: fixed;
   top: calc(50vh - 74px);
-  right: 0;
+  right: 348px;
   transform: translateY(-50%);
 }
+
 .mapboxgl-ctrl-logo {
-  margin-left: 350px !important;
   margin-bottom: 2px !important;
-  opacity: 0.4;
+  opacity: 0;
 }
 
 @import 'control-panel';

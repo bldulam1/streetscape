@@ -1,6 +1,5 @@
 import React from 'react'
 
-// import StreetScapeGL from '../components/avs/StreetScapeGL'
-import AVSAutoWS from '../components/website-demo/app'
+import AVSAuto from '../components/avs-auto/AVSAuto'
 
-export default () => <AVSAutoWS />
+export default () => <AVSAuto />

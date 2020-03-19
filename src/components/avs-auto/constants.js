@@ -18,19 +18,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import { load } from '@loaders.gl/core'
-import { OBJLoader } from '@loaders.gl/obj'
+import { load } from "@loaders.gl/core"
+import { OBJLoader } from "@loaders.gl/obj"
 
 /* eslint-disable camelcase */
-export const MAPBOX_TOKEN =
-  'pk.eyJ1IjoiYmxkdWxhbTEiLCJhIjoiY2p5YncwdHV2MGNuaDNjcW1mYnpxcnF5MiJ9._XwVCfgZCvePQBCvb-BUVA' // eslint-disable-line
+export const MAPBOX_TOKEN = "pk.eyJ1IjoiYmxkdWxhbTEiLCJhIjoiY2p5YncwdHV2MGNuaDNjcW1mYnpxcnF5MiJ9._XwVCfgZCvePQBCvb-BUVA" // eslint-disable-line
 
-export const MAP_STYLE = 'mapbox://styles/mapbox/dark-v10'
+export const MAP_STYLE = "mapbox://styles/uberdata/cjfxhlikmaj1b2soyzevnywgs"
 
 // OBJ model width 2073mm, length 4946mm
 // Volkswagen Passat: width 1820mm, length 4780mm
 export const CAR = {
-  mesh: load('./assets/car.obj', OBJLoader),
+  mesh: load("./assets/car.obj", OBJLoader),
   origin: [1.08, -0.32, 0],
   scale: 0.0009,
   wireframe: true,
@@ -39,30 +38,18 @@ export const CAR = {
 
 export const SETTINGS = {
   viewMode: {
-    type: 'select',
-    title: 'View Mode',
-    data: {
-      TOP_DOWN: 'Top Down',
-      PERSPECTIVE: 'Perspective',
-      DRIVER: 'Driver',
-    },
+    type: "select",
+    title: "View Mode",
+    data: { TOP_DOWN: "Top Down", PERSPECTIVE: "Perspective", DRIVER: "Driver" },
   },
 }
 
 // LOG_DIR is defined in webpack.config.js
+const LOG_DIR = "https://raw.githubusercontent.com/uber/xviz-data/master"
 /* eslint-disable no-undef */
-const LOG_DIR = '../../../../xviz-data'
 export const LOGS = [
   {
-    name: 'KITTI-0005',
-    path: `${LOG_DIR}/kitti/2011_09_26_drive_0005_sync`,
-    xvizConfig: {
-      TIME_WINDOW: 0.4,
-    },
-    videoAspectRatio: 10 / 3,
-  },
-  {
-    name: 'nuTonomy-0006',
+    name: "nuTonomy-0006",
     path: `${LOG_DIR}/nutonomy/scene-0006`,
     xvizConfig: {
       TIME_WINDOW: 0.2,
@@ -70,4 +57,17 @@ export const LOGS = [
     },
     videoAspectRatio: 16 / 9,
   },
+  {
+    name: "KITTI-0005",
+    path: `${LOG_DIR}/kitti/2011_09_26_drive_0005_sync`,
+    xvizConfig: {
+      TIME_WINDOW: 0.4,
+    },
+    videoAspectRatio: 10 / 3,
+  },
 ]
+
+export const MOBILE_NOTIFICATION = {
+  id: "mobile",
+  message: "Streetscape.gl demo can not run on mobile devices.",
+}

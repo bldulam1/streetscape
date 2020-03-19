@@ -7,10 +7,14 @@
 
   #logo {
     text-align: left;
-    margin: 20px 0;
+    margin-bottom: 20px;
 
-    img {
-      width: 120px;
+    .logo-inner {
+      color: #daa520;
+    }
+
+    .logo-outer {
+      color: #daa520;
     }
   }
 
@@ -24,6 +28,7 @@
     flex: 0 0 auto;
     text-align: center;
   }
+
   header {
     padding: $spacing-normal;
 
@@ -56,6 +61,7 @@
     }
 
   }
+
   main {
     flex: 1 1 auto;
     padding: $spacing-normal;
@@ -66,6 +72,7 @@
       width: 8px;
       background: none;
     }
+
     &::-webkit-scrollbar-thumb {
       background: $background-alt;
     }
@@ -82,6 +89,7 @@
 
   #log-info {
     margin-top: -12px;
+
     a {
       text-decoration: none;
       color: $color-control-active;
@@ -90,9 +98,11 @@
 
   #help {
     margin-top: -12px;
+
     table {
       width: 100%;
     }
+
     td {
       width: 50%;
     }
