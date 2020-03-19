@@ -1,5 +1,18 @@
 import React from 'react'
 
-import AVSAuto from '../components/avs-auto/AVSAuto'
+const ClientSideApp = React.lazy(() =>
+  require('../components/avs-auto/AVSAuto')
+)
 
-export default () => <AVSAuto />
+export default () => {
+  const isSSR = typeof window === 'undefined'
+  return (
+    <>
+      {!isSSR && (
+        <React.Suspense fallback={<div>Loading</div>}>
+          <ClientSideApp />
+        </React.Suspense>
+      )}
+    </>
+  )
+}
