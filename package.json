@@ -18,7 +18,7 @@
     "react-helmet": "^5.2.1",
     "react-loadingg": "^1.7.2",
     "react-particles-js": "^2.7.1",
-    "streetscape.gl": "^1.0.4",
+    "streetscape.gl": "1.0.2",
     "uuid": "^7.0.2"
   },
   "keywords": [
