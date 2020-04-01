@@ -26,3 +26,28 @@ This is a visualization tool for lidar, camera, and vehicle CAN (radar) data. AV
 
   `yarn build && yarn serve`
 
+## user guide
+
+* Streetscape.gl API Reference
+
+  https://avs.auto/#/streetscape.gl/api-reference/assets/car-mesh
+
+* Streetscape.gl Features
+  
+  - Load XVIZ data from static files or a stream server
+  
+  - Visualize dynamic XVIZ data in a fully interactive 3D context.
+
+      - Overlay with base map - put your data in the real world context
+      - Navigate the viewport: pan, rotate, zoom
+      - Select objects to display additional annotation
+      - Turn on/off primitive streams
+      - Customize camera modes: top down, perspective, driver, etc.
+  
+  - Playback logs of unlimited length, seek forwards and backwards in time.
+  
+  - Render XVIZ declarative UI, allowing your backend or on-robot systems define UI components for debugging, such as interactive tables, plots, and videos.
+
+  - Prioritize performance and memory efficiency.
+  
+  - All components are highly stylable.
