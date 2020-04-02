@@ -1,19 +1,53 @@
-# gatsby-starter-dimension
+# Data Analytics Autonomous Visualization System
 
-**This is a starter for Gatsby.js V2.**
-
-**The older V1 version of this starter can be found on the v1 branch:**
-
-Gatsby.js V2 starter based on the Dimension site template, designed by HTML5 UP. Check out https://codebushi.com/gatsby-starters-and-themes/ for more Gatsby starters and templates.
-
-## Preview
-
-https://gatsby-dimension.surge.sh/
+This is a visualization tool for lidar, camera, and vehicle CAN (radar) data. AVS is a new standard for describing and visualizing autonomous vehicle perception, motion, and planning data, offering a powerful web-based toolkit to build applications for exploring, interacting and, most critically, making important development decisions with that data.
 
 ## Installation
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-<br/>
-`gatsby new gatsby-starter-dimension https://github.com/codebushi/gatsby-starter-dimension`
+* Clone
 
-Run `gatsby develop` in the terminal to start the dev site.
+  `git clone http://de01-gitlab01.corp.int/data-analytics/streetscape.git`
+
+* Install Packages
+
+  `yarn`
+
+* Development/ Making modifications
+
+  `yarn develop`
+
+* Formatting source code
+
+  It is advised to format the source code before pushing changes to git. This will significantly minimize merge conflicts with other branches.
+
+  `yarn format`
+
+* Deployment
+
+  `yarn build && yarn serve`
+
+## user guide
+
+* Streetscape.gl API Reference
+
+  https://avs.auto/#/streetscape.gl/api-reference/assets/car-mesh
+
+* Streetscape.gl Features
+  
+  - Load XVIZ data from static files or a stream server
+  
+  - Visualize dynamic XVIZ data in a fully interactive 3D context.
+
+      - Overlay with base map - put your data in the real world context
+      - Navigate the viewport: pan, rotate, zoom
+      - Select objects to display additional annotation
+      - Turn on/off primitive streams
+      - Customize camera modes: top down, perspective, driver, etc.
+  
+  - Playback logs of unlimited length, seek forwards and backwards in time.
+  
+  - Render XVIZ declarative UI, allowing your backend or on-robot systems define UI components for debugging, such as interactive tables, plots, and videos.
+
+  - Prioritize performance and memory efficiency.
+  
+  - All components are highly stylable.
